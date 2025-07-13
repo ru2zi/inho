@@ -9,33 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Calm Neutral -->
-    <!-- Application Structure Plan: 사용자의 이력서 정보를 기반으로, 방문자가 개발자의 전문성과 성장 과정을 깊이 있게 이해할 수 있는 SPA 구조를 설계했습니다. 네비게이션은 '소개', '기술 스택', '경력 및 활동', '프로젝트', 'GitHub 통계', '연락처'로 구성됩니다. 이 구조는 방문자가 개발자의 정체성과 비전(소개)을 먼저 파악하고, 핵심 역량(기술 스택)을 확인한 후, 실제 경험(경력, 수상, 활동)을 통해 신뢰를 쌓고, 구체적인 결과물(프로젝트)을 탐색하며, 객관적인 데이터(GitHub 통계)로 꾸준함을 확인한 뒤, 마지막으로 연락(연락처)하도록 유도합니다. 이는 정보의 논리적 흐름을 통해 설득력을 극대화하기 위함입니다. -->
+    <!-- Application Structure Plan: 사용자의 이력서 정보를 기반으로, 방문자가 개발자의 전문성과 성장 과정을 깊이 있게 이해할 수 있는 SPA 구조를 설계했습니다. 네비게이션은 '소개', '기술 스택', '경력 및 활동', '프로젝트', '연락처'로 구성됩니다. 이 구조는 방문자가 개발자의 정체성과 비전(소개)을 먼저 파악하고, 핵심 역량(기술 스택)을 확인한 후, 실제 경험(경력, 수상, 활동)을 통해 신뢰를 쌓고, 구체적인 결과물(프로젝트)을 탐색한 뒤, 마지막으로 연락(연락처)하도록 유도합니다. 이는 정보의 논리적 흐름을 통해 설득력을 극대화하기 위함입니다. -->
     <!-- Visualization & Content Choices: 
         - 소개: Goal: 정체성 및 비전 전달. Method: 간결한 텍스트와 핵심 자기소개. Justification: 첫인상을 결정하는 핵심 정보의 명확한 전달.
         - 기술 스택: Goal: 전문 분야 시각화. Method: HTML/Tailwind 카드형 그리드. Justification: 기술들을 'AI/데이터', '생산성' 등으로 범주화하여 전문성을 명확히 드러냄.
         - 경력 및 활동: Goal: 경험의 깊이와 폭 증명. Method: 타임라인 형태의 카드 리스트. Justification: 시간 순서에 따라 경력, 수상, 자격증, 활동을 체계적으로 보여주어 성장 서사를 효과적으로 전달.
-        - GitHub 통계: Goal: 객관적 활동 증명. Method: 'github-readme-stats' 이미지 + JS 테마 변경 컨트롤. Justification: 정적인 통계에 동적인 상호작용을 더해 흥미를 유발하고 기술적 재치를 보여줌.
-        - 프로젝트: Goal: 실질적 역량 증명. Method: 카드형 그리드. Justification: 각 프로젝트를 독립적 단위로 명확하게 구분하고 시각적 일관성을 유지.
+        - 프로젝트: Goal: 실질적 역량 증명. Method: 상세 정보가 포함된 카드형 그리드. Justification: 각 프로젝트를 독립적 단위로 명확하게 구분하고, 개요, 성과, 기술 스택을 통해 역량을 구체적으로 보여줌.
         - 연락처: Goal: 소통 창구 제공. Method: 아이콘과 텍스트 링크. Justification: 명확하고 접근성이 높은 행동 유도.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body { font-family: 'Noto Sans KR', sans-serif; background-color: #F8F7F4; color: #3C3C3B; }
-        .chart-container { position: relative; width: 100%; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .theme-selector-label {
-            transition: all 0.2s ease-in-out;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            background-color: #EAE8E1;
-            color: #5E5B52;
-        }
-        .theme-selector-label:hover { background-color: #DCD9D1; }
-        .theme-selector-input:checked + .theme-selector-label {
-            background-color: #4A5568;
-            color: #FFFFFF;
-            font-weight: 700;
-        }
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -59,7 +43,6 @@
                 <a href="#skills" class="text-gray-600 hover:text-gray-900 transition-colors">기술 스택</a>
                 <a href="#experience" class="text-gray-600 hover:text-gray-900 transition-colors">경험</a>
                 <a href="#projects" class="text-gray-600 hover:text-gray-900 transition-colors">프로젝트</a>
-                <a href="#stats" class="text-gray-600 hover:text-gray-900 transition-colors">GitHub 통계</a>
                 <a href="#contact" class="text-gray-600 hover:text-gray-900 transition-colors">연락처</a>
             </div>
             <div class="md:hidden">
@@ -73,7 +56,6 @@
              <a href="#skills" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-200">기술 스택</a>
              <a href="#experience" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-200">경험</a>
              <a href="#projects" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-200">프로젝트</a>
-             <a href="#stats" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-200">GitHub 통계</a>
              <a href="#contact" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-200">연락처</a>
         </div>
     </header>
@@ -85,9 +67,9 @@
             <div class="max-w-3xl mx-auto bg-white/60 p-8 rounded-xl shadow-sm">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4">👨‍💻 자기소개</h2>
                 <p class="text-gray-700 text-left leading-relaxed">
-                    Python을 활용한 AI 모델링을 하는 개발자입니다. 다양한 도메인의 데이터 분석과 시계열 분야에 관심이 있습니다.<br>
+                    Python을 활용한 AI 모델링을 하는 개발자입니다. 다양한 도메인의 데이터 분석과 AI 신뢰성 분야에 관심이 있습니다.<br>
                     문제를 정의하고 해결해 나아가는 과정에 흥미를 느끼며 2회 인턴, 4회 공모전 수상 경험을 쌓았습니다.<br>
-                    또한, International Journal of Production Research에 "Advanced Virtual Metrology using Distribution Alignment Loss for Practical Quality Control" 논문을 게재한 경험이 있습니다.<br>
+                    또한, International Journal of Production Research에 "Advanced Virtual Metrology using Distribution Alignment Loss for Practical Quality Control" 논문을 게재했습니다.<br>
                     저는 모델링을 통한 지표 성능 개선과 기획안의 논리 구성을 위한 자료 조사에 강점을 가지고 있습니다.
                 </p>
             </div>
@@ -106,6 +88,8 @@
                         <span class="bg-orange-100 text-orange-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Scikit-learn</span>
                         <span class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Pytorch</span>
                         <span class="bg-indigo-100 text-indigo-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">SQL</span>
+                        <span class="bg-teal-100 text-teal-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Tensorflow</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Wandb</span>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
@@ -118,11 +102,12 @@
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-1">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Creative Tools</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Etc.</h3>
                      <div class="flex flex-wrap gap-2">
                          <span class="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">After Effects</span>
                          <span class="bg-pink-100 text-pink-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Premiere Pro</span>
-                    </div>
+                         <span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">FastAPI</span>
+                     </div>
                 </div>
             </div>
         </section>
@@ -172,61 +157,93 @@
         <section id="projects" class="py-12 md:py-16">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">주요 프로젝트</h2>
             <p class="text-center text-gray-500 mb-12">저의 역량을 보여주는 대표적인 프로젝트들입니다.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
-                    <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/a7c5eb/ffffff?text=Advanced+Virtual+Metrology" alt="Project 1">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Advanced Virtual Metrology 논문</h3>
-                        <p class="text-gray-600 mb-4 text-sm">실용적인 품질 관리를 위한 분포 정렬 손실을 사용한 가상 계측 연구. International Journal of Production Research에 게재되었습니다.</p>
-                        <div class="flex flex-wrap gap-2">
-                             <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Python</span>
-                             <span class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Pytorch</span>
-                             <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Data Analysis</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group flex flex-col">
+                    <a href="https://github.com/ru2zi/Semiconductor_yield_prediction" target="_blank" class="block">
+                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/a7c5eb/ffffff?text=반도체+수율+예측" alt="반도체 박막 두께 예측 프로젝트">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">반도체 가상 계측 프로젝트</h3>
+                        <p class="text-gray-600 mb-4 text-sm flex-grow">챔버내에서 생산되는 반도체에 대해 통계적 임베딩 방식의 Transformer와 Distribution Alignment Loss를 새롭게 정의하여 2종 오류를 감소시켰습니다.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-200">
+                            <div class="flex flex-wrap gap-2">
+                                 <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                                 <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tensorflow</span>
+                                 <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Wandb</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group">
-                    <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/f0b5a3/ffffff?text=인천시+공공데이터+프로젝트" alt="Project 2">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">인천광역시 공공데이터 활용 프로젝트</h3>
-                        <p class="text-gray-600 mb-4 text-sm">공공데이터를 활용하여 사회 문제를 해결하는 서비스/분석 프로젝트. 제10회 인천광역시 공공데이터 활용 경진대회 최우수상 수상작입니다.</p>
-                        <div class="flex flex-wrap gap-2">
-                              <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Python</span>
-                             <span class="bg-orange-100 text-orange-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Scikit-learn</span>
-                             <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">SQL</span>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group flex flex-col">
+                    <a href="https://github.com/ru2zi/Book_Genre_Classification" target="_blank" class="block">
+                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/f0b5a3/ffffff?text=도서+장르+분류" alt="도서 장르 분류 프로젝트">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">[대회] 책 장르 분류 경진대회</h3>
+                        <p class="text-gray-600 mb-4 text-sm flex-grow">책 소개글을 기반으로 해당 도서의 장르를 분류하는 자연어 처리 모델을 개발했습니다.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-200">
+                            <div class="flex flex-wrap gap-2">
+                                 <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                                 <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Tensorflow</span>
+                                 <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Wandb</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <div class="my-16 md:my-24 border-t border-gray-200"></div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group flex flex-col">
+                    <a href="#" target="_blank" class="block">
+                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/c2d6a3/ffffff?text=마실+첫+봇+서비스" alt="마실 첫 봇 서비스 개발 프로젝트">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">마실 챗봇 서비스 개발</h3>
+                        <p class="text-gray-600 mb-4 text-sm flex-grow">LLM을 활용하여 노년층의 정보 격차 해소 및 말벗 제공을 위한 챗봇 서비스를 개발했습니다. 최우수상 수상작입니다.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-200">
+                            <div class="flex flex-wrap gap-2">
+                                 <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">FastAPI</span>
+                                 <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Hugging Face</span>
+                                 <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">LLM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <section id="stats" class="py-12 md:py-16">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">GitHub 통계</h2>
-            <p class="text-center text-gray-500 mb-8">GitHub 활동을 통해 저의 꾸준함과 기여도를 확인해보세요.</p>
-            
-            <div class="flex flex-wrap justify-center items-center gap-2 mb-8" id="theme-selector">
-                <input type="radio" id="theme-tokyonight" name="theme" value="tokyonight" class="hidden theme-selector-input" checked>
-                <label for="theme-tokyonight" class="theme-selector-label">Tokyo Night</label>
-                <input type="radio" id="theme-dracula" name="theme" value="dracula" class="hidden theme-selector-input">
-                <label for="theme-dracula" class="theme-selector-label">Dracula</label>
-                <input type="radio" id="theme-radical" name="theme" value="radical" class="hidden theme-selector-input">
-                <label for="theme-radical" class="theme-selector-label">Radical</label>
-                <input type="radio" id="theme-transparent" name="theme" value="transparent" class="hidden theme-selector-input">
-                <label for="theme-transparent" class="theme-selector-label">Transparent</label>
-            </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group flex flex-col">
+                    <a href="#" target="_blank" class="block">
+                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/e6b8a2/ffffff?text=스마트+실버존+선정" alt="안전한 스마트 실버존 입지 선정 프로젝트">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">안전한 스마트 실버존 입지 선정</h3>
+                        <p class="text-gray-600 mb-4 text-sm flex-grow">인천시 공공데이터를 활용, AutoML과 LLM을 통해 노인 보행자 사고 위험 지역을 분석하고 최적의 실버존 입지를 선정 및 정책을 제안했습니다. 최우수상 수상작입니다.</p>
+                        <div class="mt-auto pt-4 border-t border-gray-200">
+                            <div class="flex flex-wrap gap-2">
+                                 <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">AutoML</span>
+                                 <span class="bg-gray-200 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">LLM</span>
+                                 <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Shap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="space-y-4 max-w-xl mx-auto">
-                <div class="chart-container">
-                    <img id="stats-card" src="https://github-readme-stats.vercel.app/api?username=inho06039&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true" alt="inho06039's GitHub stats" class="w-full rounded-lg shadow-md bg-white"/>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow group flex flex-col">
+                    <a href="https://github.com/sesac-dobong1th-saltlux-llm/final-project-1th" target="_blank" class="block">
+                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/a2c5e6/ffffff?text=면접+질문+챗봇" alt="면접 질문 챗봇(꼬질봇) 프로젝트">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">면접 질문 챗봇 (꼬질봇)</h3>
+                        <p class="text-gray-600 mb-4 text-sm flex-grow">이력서와 자기소개서를 기반으로 예상 면접 질문과 꼬리 질문을 생성하는 챗봇을 개발했습니다..</p>
+                        <div class="mt-auto pt-4 border-t border-gray-200">
+                            <div class="flex flex-wrap gap-2">
+                                 <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Hugging Face</span>
+                                 <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Pytorch</span>
+                                 <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Wandb</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="chart-container">
-                     <img id="top-langs-card" src="https://github-readme-stats.vercel.app/api/top-langs/?username=inho06039&layout=compact&theme=tokyonight" alt="inho06039's Top Languages" class="w-full rounded-lg shadow-md bg-white"/>
-                </div>
-                 <div class="chart-container">
-                    <img id="streak-stats-card" src="https://github-readme-streak-stats.herokuapp.com/?user=inho06039&theme=tokyonight" alt="inho06039's Contribution Streak" class="w-full rounded-lg shadow-md bg-white"/>
-                </div>
+                
             </div>
         </section>
 
@@ -275,24 +292,6 @@
                 link.addEventListener('click', () => {
                     if(mobileMenu.contains(link)) mobileMenu.classList.add('hidden');
                 });
-            });
-
-            const themeSelector = document.getElementById('theme-selector');
-            const statsCard = document.getElementById('stats-card');
-            const topLangsCard = document.getElementById('top-langs-card');
-            const streakStatsCard = document.getElementById('streak-stats-card');
-
-            const username = 'inho06039';
-            const baseUrlStats = `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&include_all_commits=true&count_private=true`;
-            const baseUrlTopLangs = `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact`;
-            const baseUrlStreak = `https://github-readme-streak-stats.herokuapp.com/?user=${username}`;
-
-            themeSelector.addEventListener('change', (event) => {
-                const selectedTheme = event.target.value;
-                
-                statsCard.src = `${baseUrlStats}&theme=${selectedTheme}`;
-                topLangsCard.src = `${baseUrlTopLangs}&theme=${selectedTheme}`;
-                streakStatsCard.src = `${baseUrlStreak}&theme=${selectedTheme}`;
             });
         });
     </script>
